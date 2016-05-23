@@ -2,9 +2,6 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-$CURRENT_DIR/scripts/pane-modal.sh "$CURRENT_DIR/blah.sh" "dale"
-
-tmux bind-key "'" run-shell "\"$CURRENT_DIR/pane-group.tmux\""
-
-#cmd="$CURRENT_DIR/pane-modal.sh \"$current_pane_id\" \"$new_pane_id\""
-#pane_exec "$new_pane_id" "$cmd"
+# Example:
+# bind-key C-i if-shell "#{at_edge} L" "display at_edge" "display no"
+tmux set-environment -g add_pane $CURRENT_DIR/scripts/pane_modal.sh
