@@ -42,5 +42,5 @@ function init_named_panel() {
 function get_current_pane() {
   local panes
   panes=$(tmux list-panes -F "#{pane_id}:#{?pane_active,active,nope}")
-  echo $panes | grep active | cut -d: -f1
+  echo "$panes" | grep active | cut -d: -f1
 }

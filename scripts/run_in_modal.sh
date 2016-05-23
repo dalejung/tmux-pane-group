@@ -12,6 +12,6 @@ clear_screen
 tmux swap-pane -s "$current_pane_id" -t "$new_pane_id"
 #tmux join-pane -bv -s "$new_pane_id" -t "$current_pane_id"
 
-source "$script"
+$script "$current_pane_id" "$new_pane_id"
 
 revert_to_original_pane $current_pane_id $new_pane_id
