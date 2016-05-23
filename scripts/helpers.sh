@@ -44,3 +44,8 @@ function get_current_pane() {
   panes=$(tmux list-panes -F "#{pane_id}:#{?pane_active,active,nope}")
   echo $panes | grep active | cut -d: -f1
 }
+
+active_pane_id=`get_current_pane`
+tmux set-environment -g "pane_group_groups" $active_pane_id
+
+echo $(tmux show-environment -g | grep pane_group)
